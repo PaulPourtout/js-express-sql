@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<%- include('../partials/head.ejs') %>
+</head>
+
+<body>
+	<header>
+		<%- include('../partials/header.ejs') %>
+	</header>
+	<section class="user-section">
+		<h2><%= project.name %></h2>
+		<div >
+			<h4>Voici les infos sur le projet :</h4>
+			<p><span class="bold">Github repo :</span> <%= project.githubRepo %></p>
+			<p><span class="bold">Github Url :</span>
+				<a href= <%= `${project.githubUrl}` %>><%= project.githubUrl %></a></p>
+			<p><span class="bold">Auteur du projet :</span> <a href= <%= `/user/${user.id}` %> ><%= user.firstName %></a></p>
+			<h4><span class="bold">Description :</span></h4>
+			<p><%= project.description %></p>
+		</div>
+
+	</section>
+	<footer>
+		<%- include('../partials/footer.ejs') %>
+	</footer>
+</body>
+
+</html>

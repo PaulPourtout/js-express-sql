@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<%- include('../partials/head.ejs') %>
+</head>
+
+<body>
+	<header>
+		<%- include('../partials/header.ejs') %>
+	</header>
+	<section class="user-section">
+		<a class="btn btn-light" href='/users'>Retour aux utilisateurs</a>
+		<h2><%= user.firstName %></h2>
+		<div >
+			<h4>Voici son histoire :</h4>
+			<p><%= user.description %></p>
+		</div>
+		<div class="projects">
+	
+			<a href= <%= `/user/${user.id}/projects` %> class="btn">Les projets de <%= user.firstName %></a>
+		</div>
+
+	</section>
+	<footer>
+		<%- include('../partials/footer.ejs') %>
+	</footer>
+</body>
+
+</html>
