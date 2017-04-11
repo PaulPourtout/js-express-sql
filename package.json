@@ -11,6 +11,8 @@
     "express": "^4.15.2",
     "firebase": "^3.7.4",
     "isomorphic-fetch": "^2.2.1",
+    "mysql": "^2.13.0",
+    "path": "^0.12.7",
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.30.4"
@@ -20,7 +22,8 @@
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

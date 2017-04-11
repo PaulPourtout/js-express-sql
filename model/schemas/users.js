@@ -1,15 +1,28 @@
 const Sequelize = require('sequelize');
 // const data = require('./data');
+let sequelize = null;
 
-const sequelize = new Sequelize('firstdb', 'simplonco', 'simplonco', {
-  host: 'localhost',
-  dialect: 'postgres',
-  pool: {
-	max: 5,
-	min: 0,
-	idle: 10000
-  }
-});
+
+if (process.env.HEROKU_POSTGRESQL_BRONZE_URL) {
+    // the application is executed on Heroku ... use the postgres database
+    sequelize = new Sequelize(process.env.DATABASE_URL, {
+      dialect:  'postgres',
+      protocol: 'postgres',
+      port:     match[4],
+      host:     match[3],
+      logging:  true //false
+    })
+  } else {
+	sequelize = new Sequelize('firstdb', 'simplonco', 'simplonco', {
+	  host: 'localhost',
+	  dialect: 'postgres',
+	  pool: {
+		max: 5,
+		min: 0,
+		idle: 10000
+	  }
+	});
+}
 const User = sequelize.define('users', {
 	firstName: Sequelize.STRING,
 	age: Sequelize.REAL,

@@ -1,15 +1,14 @@
 // Configure express
 const express = require('express');
 const app = express();
+const path = require('path');
 const bodyParser = require('body-parser');
 const chalk = require('chalk');
 const promise = require('es6-promise');
 promise.polyfill();
 const errorHandler = require('error-handler');
 const port = process.env.PORT || 5000;
-// Import EJS
 const ejs = require('ejs');
-app.set('view engine', 'ejs');
 
 // Import data users
 const User = require('./model/schemas/users');
@@ -19,8 +18,11 @@ const formateurs = require('./model/formateurs.js');
 // Import data projects
 const projects = require('./model/projects.js');
 
-// Static route
-app.use(express.static(__dirname + '/public'));
+
+// app.use(express.bodyParser());
+app.set('views', path.join(__dirname + '/views'));
+app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname + '/public')));
 
 // Building middleware
 const logReqType = function(req, res, next) {
