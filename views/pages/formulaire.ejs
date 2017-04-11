@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<%- include('../partials/head.ejs') %>
 </head>
+
 <body>
 	<%- include('../partials/header.ejs') %>
-	<form method="post" action="/formulaire">
-		<input type="submit" name="" value="go">
-	</form>
-
-	<%- include('../partials/footer.ejs')%>
+		<section>
+			<form method="post" action="/formulaire">
+				<p>
+					<input type="text" name="firstName" placeholder="Prénom de l'apprenant">
+					<input type="text" name="age" placeholder="Age de l'apprenant">
+				</p>
+				<p>
+					<textarea name="description" rows="8" cols="80" placeholder="description"></textarea>
+				</p>
+				<input type="submit" name="" value="Ajouter le nouvel apprenant">
+			</form>
+		</section>
+		<footer>
+			<%- include('../partials/footer.ejs')%>
+		</footer>
 </body>
+
 </html>

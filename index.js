@@ -1,6 +1,7 @@
 // Configure express
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const chalk = require('chalk');
 const promise = require('es6-promise');
 promise.polyfill();
@@ -35,11 +36,6 @@ const logReqType = function(req, res, next) {
 	console.log(chalk.yellow('request method : ' + req.method + ' url: "' + req.url + '" at ' + dateNow()));
 	next();
 };
-
-// var logError = function(err, req, res, next) {
-// 	console.log('error : ', err);
-// 	next(err);
-// };
 
 
 // Calling Middleware
